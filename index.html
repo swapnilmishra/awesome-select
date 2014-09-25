@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="awesome-select.css">
+</head>
+<body>
+  <div class="select-box">
+
+    <div class="selected"></div>
+
+    <ul class="dropdown" style="display: none;">
+      <li data-id="5" data-category="Clothing">Clothing</li> 
+      <li data-id="6" data-category="Electronics">Electronics</li> 
+      <li data-id="7" data-category="Gifts">Gifts</li> 
+      <li data-id="8" data-category="Travel">Travel</li> 
+      <li data-id="9" data-category="Books">Books</li> 
+      <li data-id="10" data-category="Kids">Kids</li> 
+      <li data-id="11" data-category="Miscellaneous">Miscellaneous</li> 
+      <li data-id="12" data-category="Entertainment">Entertainment</li> 
+    </ul> 
+
+    <select id="otherCategorySelect" style="display: none;">
+      <option value="" data-id="" data-category="" selected="">Other</option> 
+      <option value="Clothing" data-id="5" data-category="Clothing">Clothing</option> 
+      <option value="Electronics" data-id="6" data-category="Electronics">Electronics</option> 
+      <option value="Gifts" data-id="7" data-category="Gifts">Gifts</option> 
+      <option value="Travel" data-id="8" data-category="Travel">Travel</option> 
+      <option value="Books" data-id="9" data-category="Books">Books</option> 
+      <option value="Kids" data-id="10" data-category="Kids">Kids</option> 
+      <option value="Miscellaneous" data-id="11" data-category="Miscellaneous">Miscellaneous</option>
+      <option value="Entertainment" data-id="12" data-category="Entertainment">Entertainment</option>
+    </select>
+  </div>
+
+  <div class="select-box">
+
+    <div class="selected"></div>
+
+    <ul class="dropdown" style="display: none;">
+      <li data-id="5" data-category="Clothing">Clothing</li> 
+      <li data-id="6" data-category="Electronics">Electronics</li> 
+      <li data-id="7" data-category="Gifts">Gifts</li> 
+      <li data-id="8" data-category="Travel">Travel</li> 
+      <li data-id="9" data-category="Books">Books</li> 
+      <li data-id="10" data-category="Kids">Kids</li> 
+      <li data-id="11" data-category="Miscellaneous">Miscellaneous</li> 
+      <li data-id="12" data-category="Entertainment">Entertainment</li> 
+    </ul> 
+
+    <select id="otherCategorySelect2" style="display: none;">
+      <option value="" data-id="" data-category="" selected="">Other</option> 
+      <option value="Clothing" data-id="5" data-category="Clothing">Clothing</option> 
+      <option value="Electronics" data-id="6" data-category="Electronics">Electronics</option> 
+      <option value="Gifts" data-id="7" data-category="Gifts">Gifts</option> 
+      <option value="Travel" data-id="8" data-category="Travel">Travel</option> 
+      <option value="Books" data-id="9" data-category="Books">Books</option> 
+      <option value="Kids" data-id="10" data-category="Kids">Kids</option> 
+      <option value="Miscellaneous" data-id="11" data-category="Miscellaneous">Miscellaneous</option>
+      <option value="Entertainment" data-id="12" data-category="Entertainment">Entertainment</option>
+    </select>
+  </div>
+  <script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="awesome-select.js"></script>
+  <script type="text/javascript">
+    if(AwesomeSelect){
+      AwesomeSelect.awesome('#otherCategorySelect');
+      AwesomeSelect.awesome('#otherCategorySelect2');
+    }
+  </script>
+</body>
+</html>
