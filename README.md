@@ -1,7 +1,7 @@
 awesome-select
 ==============
 
-A simple lightweight custom select
+A lightweight jQuery based custom select
 
 
 Initialize the plugin as given below
