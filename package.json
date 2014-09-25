@@ -1,0 +1,26 @@
+{
+  "name": "awesome-select",
+  "version": "0.0.0",
+  "description": "jQuery based select box plugin",
+  "main": "awesome-select.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swapnilmishra/awesome-select.git"
+  },
+  "author": "swapnilmishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swapnilmishra/awesome-select/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-uglify": "^0.2.1",
+    "gulp-jshint": "^1.5.3",
+    "jshint-stylish": "^0.1.5",
+    "gulp-minify-css": "^0.3.1",
+    "gulp-concat": "^2.2.0"
+  }
+}
