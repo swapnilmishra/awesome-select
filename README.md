@@ -25,4 +25,9 @@ AwesomeSelect.awesome('#otherCategorySelect',{
     alert("I am on change event");
   }
 });
+
+// OR
+
+// without onChange event
+AwesomeSelect.awesome('#otherCategorySelect');
 ```
