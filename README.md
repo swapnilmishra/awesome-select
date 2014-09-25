@@ -35,3 +35,5 @@ AwesomeSelect.awesome('#otherCategorySelect',{
 // without onChange event
 AwesomeSelect.awesome('#otherCategorySelect');
 ```
+
+See example folder for running version.
