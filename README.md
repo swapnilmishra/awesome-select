@@ -1,10 +1,14 @@
 awesome-select
 ==============
 
-A lightweight jQuery based custom select
+A lightweight jQuery based custom select.
 
+How to use
+----------
 
-Just initialize the plugin on your select element as given in below example. Optionally you can also pass an ``onChange`` event.
+Include jquery,awesome-select.js and awesome-select.css.
+
+Then initialize the plugin on your select element as given show below. Optionally you can also pass an ``onChange`` event.
 
 #####HTML#####
 ```html```
