@@ -43,7 +43,7 @@
         }
     };
 
-    window.AwesomeSelect.awesome  = function(el){
+    window.AwesomeSelect.awesome  = function(el,options){
 
         var _private = {
 
@@ -59,7 +59,13 @@
 
             $originalSelect : undefined,
 
-            makeMeAwesome : function(el){
+            options : undefined,
+
+            makeMeAwesome : function(el,options){
+
+                if(options){
+                    this.options = options;
+                }
                 if(el){
                     this.$el = $(el);
                     this.el = el;
@@ -94,7 +100,14 @@
 
             bindEventHandlers : function(){
 
-                var that = this;
+                var that = this,
+                    options = this.options;
+
+                that.$originalSelect = that.$parentEl.find('select');
+
+                if(options && options.onChange){
+                    this.$originalSelect.on('change', options.onChange);
+                }
 
                 this.$parentEl.on('click', function(){
                     // console.log("Click on parent");
@@ -105,15 +118,15 @@
 
                 this.$parentEl.find('li').on('click', function(event){
                     // console.log("Click on child");
-                    that.$originalSelect = that.$parentEl.find('select');
                     val = $(this).text();
                     that.$selected.text(val);
                     that.$originalSelect.val(val);
+                    that.$originalSelect.trigger('change');
                 });
             }
         };
 
-        _private.makeMeAwesome(el);
+        _private.makeMeAwesome(el,options);
 
     }
 })();

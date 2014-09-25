@@ -64,8 +64,16 @@
   <script type="text/javascript" src="awesome-select.js"></script>
   <script type="text/javascript">
     if(AwesomeSelect){
-      AwesomeSelect.awesome('#otherCategorySelect');
-      AwesomeSelect.awesome('#otherCategorySelect2');
+      AwesomeSelect.awesome('#otherCategorySelect',{
+        onChange : function(){
+          alert("I am on change event1");
+        }
+      });
+      AwesomeSelect.awesome('#otherCategorySelect2',{
+        onChange : function(){
+          alert("I too have a change event");
+        }
+      });
     }
   </script>
 </body>
