@@ -61,14 +61,16 @@
 
             options : undefined,
 
+            // el is id of select element
             makeMeAwesome : function(el,options){
 
                 if(options){
                     this.options = options;
                 }
                 if(el){
-                    this.$el = $(el);
                     this.el = el;
+                    this.generateHTML();
+                    this.$el = $(el);
                     this.$parentEl = $(el).parents('.select-box');
                     this.init();
                 }
@@ -123,10 +125,82 @@
                     that.$originalSelect.val(val);
                     that.$originalSelect.trigger('change');
                 });
+            },
+
+            generateHTML : function(){
+                var hash = [];
+                var el = this.el;
+                var container = $(el).css("display","none").parent();
+
+                $(el + " option").each(function(idx,el){
+                    hash.push({
+                        value : $(el).val(),
+                        html : $(el).html()
+                    });
+                });
+
+                var parentEl = createParent();
+                var selPlaceholderEl =  createSelPlaceholder(parentEl);
+                var ulEl = createUl();
+                for(var i=0; i < hash.length; i++){
+                    ulEl.append( $("<li>").html(hash[i].html) );
+                }
+                var actualEl = $(el);
+                parentEl.append(selPlaceholderEl);
+                parentEl.append(ulEl);
+                parentEl.insertBefore(el);
+                parentEl.append( $(el) );
+
+                function createParent(){
+                    return $("<div>").addClass("select-box");
+                }
+
+                function createSelPlaceholder(){
+                    var newDiv = $("<div>").addClass("selected");
+                    return newDiv;
+                }
+
+                function createUl(){
+                    var newUl = $("<ul>").addClass("dropdown").css("display", "none");
+                    return newUl;
+                }
             }
         };
 
         _private.makeMeAwesome(el,options);
 
+    }
+
+    window.AwesomeSelect.tpl = function(str, data){
+        
+        var cache = {};
+ 
+        // Figure out if we're getting a template, or if we need to
+        // load the template - and be sure to cache the result.
+        var fn = !/\W/.test(str) ?
+          cache[str] = cache[str] ||
+            tmpl(document.getElementById(str).innerHTML) :
+         
+          // Generate a reusable function that will serve as a template
+          // generator (and which will be cached).
+          new Function("obj",
+            "var p=[],print=function(){p.push.apply(p,arguments);};" +
+           
+            // Introduce the data as local variables using with(){}
+            "with(obj){p.push('" +
+           
+            // Convert the template into pure JavaScript
+            str
+              .replace(/[\r\t\n]/g, " ")
+              .split("<%").join("\t")
+              .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+              .replace(/\t=(.*?)%>/g, "',$1,'")
+              .split("\t").join("');")
+              .split("%>").join("p.push('")
+              .split("\r").join("\\'")
+          + "');}return p.join('');");
+       
+        // Provide some basic currying to the user
+        return data ? fn( data ) : fn;
     }
 })();
