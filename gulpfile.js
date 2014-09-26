@@ -18,11 +18,11 @@ var uglifyConfigs = {
 };
 
 var JSFiles = [
-  'awesome-select.js'
+  'src/awesome-select.js'
 ];
 
 var CSSFiles = [
-  'awesome-select.css'
+  'src/awesome-select.css'
 ];
 
 // task for building require files
