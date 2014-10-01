@@ -103,7 +103,9 @@
             bindEventHandlers : function(){
 
                 var that = this,
-                    options = this.options;
+                    options = this.options,
+                    val,
+                    dataVal;
 
                 that.$originalSelect = that.$parentEl.find('select');
 
@@ -121,8 +123,9 @@
                 this.$parentEl.find('li').on('click', function(event){
                     // console.log("Click on child");
                     val = $(this).text();
+                    dataVal = $(this).attr("data-value");
                     that.$selected.text(val);
-                    that.$originalSelect.val(val);
+                    that.$originalSelect.val(dataVal);
                     that.$originalSelect.trigger('change');
                 });
             },
