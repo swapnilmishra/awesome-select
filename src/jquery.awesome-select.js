@@ -120,7 +120,7 @@
 
                 this.$parentEl.find('li').on('click', function(event){
                     // console.log("Click on child");
-                    val = $(this).text();
+                    val = $(this).attr("data-value");
                     that.$selected.text(val);
                     that.$originalSelect.val(val);
                     that.$originalSelect.trigger('change');
